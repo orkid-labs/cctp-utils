@@ -1,0 +1,28 @@
+[package]
+name = "cctp-utils"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "CCTP (Cross-Chain Transfer Protocol) utilities for Rust - depositForBurn encoding and Circle Iris attestation verification"
+repository = "https://github.com/orkid-labs/cctp-utils"
+keywords = ["cctp", "circle", "cross-chain", "attestation", "iris"]
+categories = ["api-bindings", "cryptography::cryptocurrencies"]
+
+[lib]
+name = "cctp_utils"
+path = "src/lib.rs"
+
+[dependencies]
+alloy-primitives = { version = "1.5", features = ["serde"] }
+ethers = { version = "2", features = ["abigen"] }
+hex = "0.4"
+anyhow = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+k256 = { version = "0.11", features = ["ecdsa"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+tokio = { version = "1.0", features = ["full"] }
+rand = "0.8"
+
+[dev-dependencies]
+httpmock = "0.6"
